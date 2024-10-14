@@ -1,0 +1,113 @@
+/* Reset dos estilos padrões */  
+* {  
+    margin: 0;  
+    padding: 0;  
+    box-sizing: border-box;  
+}  
+
+/* Corpo da página */  
+body {  
+    font-family: 'Arial', sans-serif;  
+    background-color: #141414; /* Fundo escuro */  
+    color: white;  
+}  
+
+/* Estilo do cabeçalho */  
+h1 {  
+    padding: 20px;  
+    text-align: center;  
+    font-size: 2.5em;  
+    color: #e50914; /* Vermelho Netflix */  
+}  
+
+/* Estilo do formulário */  
+form {  
+    padding: 20px;  
+    background-color: #333; /* Fundo do formulário */  
+    border-radius: 10px;  
+    margin: 20px auto;  
+    max-width: 400px;  
+}  
+
+label {  
+    display: block;  
+    margin: 10px 0 5px;  
+}  
+
+input[type="text"],  
+input[type="date"],  
+input[type="checkbox"] {  
+    width: 100%;  
+    padding: 10px;  
+    margin-bottom: 10px;  
+    border: none;  
+    border-radius: 5px;  
+    background-color: #555; /* Campo de entrada */  
+    color: white;  
+}  
+
+input[type="checkbox"] {  
+    width: auto;  
+}  
+
+/* Botão */  
+button {  
+    background-color: #e50914; /* Vermelho Netflix */  
+    color: white;  
+    padding: 10px;  
+    border: none;  
+    border-radius: 5px;  
+    cursor: pointer;  
+    font-size: 1em;  
+    transition: background-color 0.3s;  
+}  
+
+button:hover {  
+    background-color: #f40612; /* Efeito hover */  
+}  
+
+/* Estilo da lista de chamados */  
+#lista-chamados {  
+    padding: 20px;  
+    display: flex;  
+    flex-direction: column;  
+    align-items: center;  
+}  
+
+.chamado {  
+    background-color: #444; /* Fundo dos chamados */  
+    padding: 15px;  
+    border-radius: 10px;  
+    margin: 10px 0;  
+    width: 100%;  
+    max-width: 400px;  
+}  
+
+.chamado strong {  
+    color: #e50914; /* Títulos em vermelho */  
+}  
+
+.chamado button {  
+    margin-top: 10px;  
+    width: 48%; /* Botões lado a lado */  
+}  
+
+/* Responsividade */  
+@media (max-width: 600px) {  
+    body {  
+        font-size: 0.9em; /* Ajusta o tamanho da fonte em dispositivos menores */  
+    }  
+
+    h1 {  
+        font-size: 2em;  
+    }  
+
+    button {  
+        width: 100%; /* Botão ocupa a largura total em dispositivos menores */  
+        margin: 5px 0;  
+    }  
+
+    .chamado {  
+        width: 90%; /* Chamada ocupa 90% da tela */  
+    }  
+}

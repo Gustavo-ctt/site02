@@ -1,0 +1,59 @@
+<!DOCTYPE html>  
+<html lang="pt-BR">  
+<head>  
+    <meta charset="UTF-8">  
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+    <link rel="stylesheet" href="styles.css">  
+    <title>Edição de Chamado</title>  
+</head>  
+<body>  
+    <h1>Edição de Chamado</h1>  
+    <form id="form-editar">  
+        <label for="numeroDT">Número DT:</label>  
+        <input type="text" id="numeroDT"><br>  
+        <label for="setor">Setor:</label>  
+        <input type="text" id="setor"><br>  
+        <label for="responsavel">Responsável:</label>  
+        <input type="text" id="responsavel"><br>  
+        <label for="motivo">Motivo:</label>  
+        <input type="text" id="motivo"><br>  
+        <label for="dataRegistro">Data de Registro:</label>  
+        <input type="date" id="dataRegistro"><br>  
+        <label for="finalizado">Finalizado:</label>  
+        <input type="checkbox" id="finalizado"><br>  
+        <button type="submit">Atualizar Chamado</button>  
+    </form>  
+
+    <script>  
+        const chamadoParaEditar = JSON.parse(localStorage.getItem('editChamado'));  
+        const chamados = JSON.parse(localStorage.getItem('chamados')) || [];  
+
+        if (chamadoParaEditar) {  
+            const index = chamadoParaEditar.index;  
+            document.getElementById('numeroDT').value = chamadoParaEditar.numeroDT;  
+            document.getElementById('setor').value = chamadoParaEditar.setor;  
+            document.getElementById('responsavel').value = chamadoParaEditar.responsavel;  
+            document.getElementById('motivo').value = chamadoParaEditar.motivo;  
+            document.getElementById('dataRegistro').value = chamadoParaEditar.dataRegistro;  
+            document.getElementById('finalizado').checked = chamadoParaEditar.finalizado;  
+
+            document.getElementById('form-editar').onsubmit = function(event) {  
+                event.preventDefault();  
+                const atualizado = {  
+                    numeroDT: document.getElementById('numeroDT').value,  
+                    setor: document.getElementById('setor').value,  
+                    responsavel: document.getElementById('responsavel').value,  
+                    motivo: document.getElementById('motivo').value,  
+                    dataRegistro: document.getElementById('dataRegistro').value,  
+                    finalizado: document.getElementById('finalizado').checked  
+                };  
+
+                chamados[index] = atualizado; // Atualiza o chamado  
+                localStorage.setItem('chamados', JSON.stringify(chamados));  
+                localStorage.removeItem('editChamado'); // Remove o item de edição  
+                window.location.href = 'index.html'; // Volta para a lista de chamados  
+            };  
+        }  
+    </script>  
+</body>  
+</html>
